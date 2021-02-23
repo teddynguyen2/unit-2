@@ -1,3 +1,4 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
-#mapid { height: 180px; }
+#mapid { height: 400px;
+         width: 100%; }
