@@ -1,132 +1,61 @@
-//initialize function called when the script loads
-function initialize(){
-	cities();
-	debugAjax();
+/* Map of GeoJSON data from MegaCities.geojson */
+//declare map var in global scope
+var map;
+//function to instantiate the Leaflet map
+function createMap(){
+    //create the map
+    map = L.map('mapid', {
+        center: [39,-45],
+        zoom: 4
+    });
+
+    //add OSM base tilelayer
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    //call getData function
+    getData(map);
 };
 
-//function to create a table with cities and their populations
-function cities(){
-	//define two arrays for cities and population
-	var cityPop = [
-		{ 
-			city: 'Madison',
-			population: 233209
-		},
-		{
-			city: 'Milwaukee',
-			population: 594833
-		},
-		{
-			city: 'Green Bay',
-			population: 104057
-		},
-		{
-			city: 'Superior',
-			population: 27244
-		}
-	];
-
-	//append the table element to the div
-	$("#mydiv").append("<table>");
-
-	//append a header row to the table
-	$("table").append("<tr>");
-	
-	//add the "City" and "Population" columns to the header row
-	$("tr").append("<th>City</th><th>Population</th>");
-	
-	//loop to add a new row for each city
-    for (var i = 0; i < cityPop.length; i++){
-        //assign longer html strings to a variable
-        var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
-        //add the row's html string to the table
-        $("table").append(rowHtml);
+//added at Example 2.3 line 20...function to attach popups to each mapped feature
+function onEachFeature(feature, layer) {
+    //no property named popupContent; instead, create html string with all properties
+    var popupContent = "";
+    if (feature.properties) {
+        //loop to add feature property names and values to html string
+        for (var property in feature.properties){
+            popupContent += "<p>" + property + ": " + feature.properties[property] + "</p>";
+        }
+        layer.bindPopup(popupContent);
     };
-
-    addColumns(cityPop);
-    addEvents();
 };
 
-//adds column, which includes different city sizes
-function addColumns(cityPop){
-    //adds each city size to the column
-    $("tr").each(function(i){
-    	if (i == 0){
-    		$(this).append("<th>City Size</th>");
-    	} else {
-    		var citySize;
+//function to retrieve the data and place it on the map
+function getData(map){
+    //load the data
+    $.getJSON("data/lesbianbardecline.geojson", function(response){
 
-    		if (cityPop[i-1].population < 100000){
-    			citySize = 'Small';
-    		} else if (cityPop[i-1].population < 500000){
-    			citySize = 'Medium';
-    		} else {
-    			citySize = 'Large';
-    		};
-		
-		//adds new city size
-    		$(this).append("<td>" + citySize + "</td>");
-    	};
+        var geojsonMarkerOptions = {
+            radius: 8,
+            fillColor: "#ff7800",
+            color: "#000",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        };
+
+L.geoJSON(response, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
+}).addTo(map);
+
+            //create a Leaflet GeoJSON layer and add it to the map
+            L.geoJson(response, {
+                onEachFeature: onEachFeature
+            }).addTo(map);
     });
 };
 
-//adds colors when mouse is over desired location
-function addEvents(){
-	//checks if mouse is over desired location; changes colors
-	$("table").mouseover(function(){
-		var color = "rgb(";
-		
-		//loop for obtaining random colors
-		for (var i=0; i<3; i++){
-			var random = Math.round(Math.random() * 255);
-			color += random;
-
-			if (i<2){
-				color += ",";
-			} else {
-				color += ")";
-			}
-		};
-		//assigning colors
-		$(this).css('color', color);
-	});
-	
-	//pops alert message when user clicks table
-	function clickme(){
-		alert('Hey, you clicked me!');
-	};
-	
-	$("table").on('click', clickme);
-};
-
-//Checks the GeoJSON data and stringify the data.
-function debugCallback(mydata){
-	//call data, with a line break
-	$("#mydiv").append('<br>GeoJSON data: <br>' + JSON.stringify(mydata));
-};
-
-function debugAjax(){
-	//variable mydata defined outside
-	var mydata;
-
-	//Access MegaCities.geojson file from the data folder
-	$.ajax("data/MegaCities.geojson", {
-		dataType: "json",
-		success: function(response){
-			
-			//mydata defined inside; cannot be accessed outside of function
-			var mydata = response; 
-			
-			//data can be accessed
-			console.log(mydata);
-			
-			//sends parameter type mydata to the debugCallback function
-			debugCallback(mydata);
-		}
-	});
-	//data cannot be accessed
-	console.log(mydata);
-};
-
-//document is ready and calls the initialize function
-$(document).ready(initialize);
+$(document).ready(createMap);
