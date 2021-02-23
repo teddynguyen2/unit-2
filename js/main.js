@@ -34,7 +34,7 @@ function onEachFeature(feature, layer) {
 //function to retrieve the data and place it on the map
 function getData(map){
     //load the data
-    $.getJSON("data/lesbianbardecline.geojson", function(response){
+    $.getJSON("data/.geojson", function(response){
 
         var geojsonMarkerOptions = {
             radius: 8,
