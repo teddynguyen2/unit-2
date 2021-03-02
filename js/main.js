@@ -142,7 +142,7 @@ function createSequenceControls(attributes){
     $('#panel').append('<input class="range-slider" type="range">');
     //set slider attributes
     $('.range-slider').attr({
-        max: 10,
+        max: 9,
         min: 0,
         value: 0,
         step: 1
