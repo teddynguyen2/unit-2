@@ -1,7 +1,8 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
-#mapid { height: 400px;
-         width: 100%; 
+#mapid { 
+	height: 400px;
+        width: 100%; 
 	display: inline-block; 
 }
 
@@ -10,7 +11,7 @@
 }
 
 #panel {
-	width: 16%;
+	width: 25%;
 	padding: 20px;
 	display: inline-block;
 	vertical-align: top;
@@ -20,7 +21,6 @@
 
 .range-slider {
 	width: 55%;
-	color: #D42C04;
 }
 
 .step {
