@@ -33,26 +33,22 @@ function calculateMinValue(data){
     }
     //get minimum value of our array
     var minValue = Math.min(...allValues)
-
     return minValue;
 }
 
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     if (attValue >= 1){
-    //constant factor adjusts symbol sizes evenly
-    var minRadius = 5;
-    //Flannery Apperance Compensation formula
-    var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
-    setTimeout(donothing,500);
-    
-    return radius;
+        //constant factor adjusts symbol sizes evenly
+        var minRadius = 5;
+        //Flannery Apperance Compensation formula
+        var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
+        return radius;
     }
-    
     else {
         var radius = 1;
         return radius;
-  };
+    };
 };
 
 //function to convert markers to circle markers and add popups
@@ -106,7 +102,7 @@ function createPropSymbols(data, attributes){
 function updatePropSymbols(attribute){
     map.eachLayer(function(layer){
         if (layer.feature && layer.feature.properties[attribute]){
-          //access feature properties
+           //access feature properties
            var props = layer.feature.properties;
            //update each feature's radius based on new attribute values
            var radius = calcPropRadius(props[attribute]);
@@ -152,7 +148,7 @@ function createSequenceControls(attributes){
     //add step buttons
     $('#panel').append('<button class="step" id="reverse">Reverse</button>');
     $('#panel').append('<button class="step" id="forward">Forward</button>');
-  //replace button content with images
+   //replace button content with images
    $('#reverse').html('<img src="img/reverse.png">');
    $('#forward').html('<img src="img/forward.png">');
    //click listener for buttons
@@ -174,7 +170,7 @@ function createSequenceControls(attributes){
       //update slider
       $('.range-slider').val(index);
       //pass new attribute to update symbols
-        updatePropSymbols(attributes[index]);
+      updatePropSymbols(attributes[index]);
     });
 
     //input listener for slider
@@ -182,7 +178,7 @@ function createSequenceControls(attributes){
       //get the new index value
       var index = $(this).val();
       //pass new attribute to update symbols
-        updatePropSymbols(attributes[index]);
+      updatePropSymbols(attributes[index]);
     });
 };
 
