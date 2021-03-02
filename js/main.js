@@ -64,7 +64,7 @@ function pointToLayer(feature, latlng, attributes){
     var options = {
         fillColor: "#ff7800",
         color: '#000000',
-        weight: 20,
+        weight: 10,
         opacity: 1,
         fillOpacity: 0.8
      };
