@@ -44,6 +44,8 @@ function calcPropRadius(attValue) {
     var minRadius = 5;
     //Flannery Apperance Compensation formula
     var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
+    
+    
     return radius;
     }
     
