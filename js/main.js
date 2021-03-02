@@ -56,7 +56,7 @@ function calcPropRadius(attValue) {
 //function to convert markers to circle markers and add popups
 function pointToLayer(feature, latlng, attributes){
     //Determine which attribute to visualize with proportional symbols
-    var attribute = "Pop_2010"
+    var attribute = attributes[0];
     //For each feature, determine its value for the selected attribute
     var attValue = Number(feature.properties[attribute]);
 
