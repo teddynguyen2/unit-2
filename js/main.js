@@ -162,11 +162,11 @@ function createSequenceControls(attributes){
       if ($(this).attr('id') == 'forward'){
           index++;
           //if past the last attribute, wrap around to first attribute
-          index = index > 12 ? 0 : index;
+          index = index > 10 ? 0 : index;
       } else if ($(this).attr('id') == 'reverse'){
           index--;
           //if past the first attribute, wrap around to last attribute
-          index = index < 0 ? 12 : index;
+          index = index < 0 ? 10 : index;
       };
 
       //update slider
@@ -188,6 +188,7 @@ function createSequenceControls(attributes){
 function getData(map){
     //load the data
     $.getJSON("data/US_Cities.geojson", function(response){
+            //create an attributes array
             var attributes = processData(response);
             //calculate minimum data value
             minValue = calculateMinValue(response);
