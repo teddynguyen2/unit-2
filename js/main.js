@@ -104,7 +104,7 @@ function updatePropSymbols(attribute){
            var radius = calcPropRadius(props[attribute]);
            layer.setRadius(radius);
            //add city to popup content string
-           var popupContent = "<p><b>City:</b> " + props.city + "</p>";
+           var popupContent = "<p><b>City:</b> " + props.City + "</p>";
            //add number of bars attribute to panel content string
            var year = attribute.split("_")[1];
            popupContent += "<p><b>Population in " + year + ":</b> " + props[attribute] + "</p>";
