@@ -38,11 +38,17 @@ function calculateMinValue(data){
 
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
+    if (attValue >= 0){
         //constant factor adjusts symbol sizes evenly
         var minRadius = 5;
         //Flannery Apperance Compensation formula
         var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
         return radius;
+    }
+    else {
+        var radius = 1;
+        return radius;
+    };
 };
 
 //function to convert markers to circle markers and add popups
