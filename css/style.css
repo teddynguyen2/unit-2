@@ -1,5 +1,40 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
 #mapid { height: 400px;
-         width: 100%; }
+         width: 100%; 
+	display: inline-block; 
+}
 
+.leaflet-popup-content p {
+    margin: 0.2em 0;
+}
+
+#panel {
+	width: 16%;
+	padding: 20px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	line-height: 42px;
+}
+
+.range-slider {
+	width: 55%;
+	color: #D42C04;
+}
+
+.step {
+	width: 20%;
+}
+
+.step img {
+	width: 100%;
+}
+
+#forward {
+	float: right;
+}
+
+#reverse {
+	float: left;
+}
