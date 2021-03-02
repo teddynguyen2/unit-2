@@ -38,7 +38,7 @@ function calculateMinValue(data){
 
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
-    if (attValue >= 0){
+    if (attValue >= -1){
         //constant factor adjusts symbol sizes evenly
         var minRadius = 5;
         //Flannery Apperance Compensation formula
