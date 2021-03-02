@@ -186,7 +186,7 @@ function getData(map){
             //calculate minimum data value
             minValue = calculateMinValue(response);
             //call function to create proportional symbols
-            createPropSymbols(response);
+            createPropSymbols(response, attributes);
             createSequenceControls(attributes);
     });
 };
