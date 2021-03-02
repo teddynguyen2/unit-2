@@ -70,7 +70,7 @@ function pointToLayer(feature, latlng, attributes){
     var layer = L.circleMarker(latlng, options);
     
     //build popup content string starting with city...Example 2.1 line 24
-    var popupContent = "<p><b>City:</b> " + feature.properties.city + "</p>";
+    var popupContent = "<p><b>City:</b> " + feature.properties.City + "</p>";
     
     //add formatted attribute to popup content string
     var year = attribute.split("_")[1];
