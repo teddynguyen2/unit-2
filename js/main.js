@@ -142,7 +142,7 @@ function createSequenceControls(attributes){
     $('#panel').append('<input class="range-slider" type="range">');
     //set slider attributes
     $('.range-slider').attr({
-        max: 12,
+        max: 10,
         min: 0,
         value: 0,
         step: 1
@@ -162,11 +162,11 @@ function createSequenceControls(attributes){
       if ($(this).attr('id') == 'forward'){
           index++;
           //if past the last attribute, wrap around to first attribute
-          index = index > 10 ? 0 : index;
+          index = index > 9 ? 0 : index;
       } else if ($(this).attr('id') == 'reverse'){
           index--;
           //if past the first attribute, wrap around to last attribute
-          index = index < 0 ? 10 : index;
+          index = index < 0 ? 9 : index;
       };
 
       //update slider
