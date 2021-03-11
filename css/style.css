@@ -51,7 +51,7 @@ Map {
   marker-width: 12;
   marker-fill: white;
   marker-fill-opacity: 1;
-  marker-file: url(https://cartodb-libs.global.ssl.fastly.net/cartodbui/assets/unversioned/images/alphamarker.png);
+  marker-file: url(/img/rectangle.jpg);
   marker-allow-overlap: true;
   marker-line-width: 1;
   marker-line-color: #FFFFFF;
