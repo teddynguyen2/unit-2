@@ -24,7 +24,7 @@ function createMap(){
         var div = L.DomUtil.create("div", "legend");
         div.innerHTML += "<h4>Legend</h4>";
         div.innerHTML += '<i style="background: rgb(135,206,235)"></i><span>Water</span><br>';
-        div.innerHTML += '<i style="background: #448D40"></i><span>Forest</span><br>';
+        div.innerHTML += '<i style="background: rgb(144,238,144)"></i><span>Forest</span><br>';
         div.innerHTML += '<i style="background: #E6E696"></i><span>Land</span><br>';
         div.innerHTML += '<i style="background: #E8E6E0"></i><span>Residential</span><br>';
         div.innerHTML += '<i style="background: rgb(224,255,255)"></i><span>Ice</span><br>';
