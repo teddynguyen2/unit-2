@@ -7,5 +7,7 @@ The map indicates fifteen large cities scattered throughout the US using spatiot
 
 # Citations:
 https://data.census.gov/cedsci/?q=United%20States
+
 https://worldpopulationreview.com/us-cities
+
 https://www.infoplease.com/us/cities/top-50-cities-us-population-and-rank
