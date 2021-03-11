@@ -74,8 +74,8 @@ function pointToLayer(feature, latlng, attributes){
 
     //create marker options
     var options = {
-        fillColor: "#ff7800",
-        color: '#000000',
+        fillColor: "#E15D44",
+        color: '#E15D44',
         weight: 10,
         opacity: 1,
         fillOpacity: 0.8
