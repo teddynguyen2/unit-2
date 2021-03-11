@@ -51,7 +51,7 @@ Map {
   marker-width: 12;
   marker-fill: white;
   marker-fill-opacity: 1;
-  marker-file: url(/img/rectangle.jpg);
+  marker-file: url(https://github.com/teddynguyen2/unit-2/blob/main/img/rectangle.jpg);
   marker-allow-overlap: true;
   marker-line-width: 1;
   marker-line-color: #FFFFFF;
