@@ -17,9 +17,6 @@ function createMap(){
     //call getData function
     getData(map);
     
-    addTitle(object, "Hello", color = "black", fontSize = "20px",
-    fontFamily = "Sans", leftPosition = 50, topPosition = 2);
-    
     /*Legend specific*/
     var legend = L.control({ position: "bottomleft" });
 
