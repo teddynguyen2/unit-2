@@ -1,6 +1,8 @@
 /* Map of GeoJSON data from US_Cities.geojson */
+
 //declare map var in global scope
 var map;
+
 //function to instantiate the Leaflet map
 function createMap(){
     //create the map
@@ -17,7 +19,7 @@ function createMap(){
     //call getData function
     getData(map);
     
-    /*Legend specific*/
+    /*Create legend and add to map*/
     var legend = L.control({ position: "bottomleft" });
 
     legend.onAdd = function(map) {
@@ -33,6 +35,7 @@ function createMap(){
         }; legend.addTo(map);
 };
 
+//Finds the minimum value of popultions
 function calculateMinValue(data){
     //create empty array to store all data values
     var allValues = [];
@@ -46,12 +49,12 @@ function calculateMinValue(data){
               allValues.push(value);
         }
     }
-    //get minimum value of our array
+    //get minimum value of array
     var minValue = Math.min(...allValues)
     return minValue;
 }
 
-//calculate the radius of each proportional symbol
+//Calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     if (attValue >= 1){
         //constant factor adjusts symbol sizes evenly
@@ -66,11 +69,11 @@ function calcPropRadius(attValue) {
     };
 };
 
-//function to convert markers to circle markers and add popups
+//Function to convert markers to circle markers and add popups
 function pointToLayer(feature, latlng, attributes){
-    //Determine which attribute to visualize with proportional symbols
+    //determine which attribute to visualize with proportional symbols
     var attribute = attributes[0];
-    //For each feature, determine its value for the selected attribute
+    //for each feature, determine its value for the selected attribute
     var attValue = Number(feature.properties[attribute]);
 
     //create marker options
@@ -82,7 +85,7 @@ function pointToLayer(feature, latlng, attributes){
         fillOpacity: 0.8
      };
     
-    //Give each feature's circle marker a radius based on its attribute value
+    //give each feature's circle marker a radius based on its attribute value
     options.radius = calcPropRadius(attValue);
     
     //create circle marker layer
@@ -104,6 +107,7 @@ function pointToLayer(feature, latlng, attributes){
     return layer;
   };
 
+//Creates proportional symbols using data and attributes parameters passed
 function createPropSymbols(data, attributes){
     //create a Leaflet GeoJSON layer and add it to the map
     L.geoJson(data, {
@@ -134,6 +138,7 @@ function updatePropSymbols(attribute){
     });
 };
 
+//Takes in data parameter and processes; returns attributes
 function processData(data){
     //empty array to hold attributes
     var attributes = [];
@@ -197,7 +202,7 @@ function createSequenceControls(attributes){
     });
 };
 
-//Step 2: Import GeoJSON data
+//Import GeoJSON data
 function getData(map){
     //load the data
     $.getJSON("data/US_Cities.geojson", function(response){
@@ -211,4 +216,5 @@ function getData(map){
     });
 };
 
+//Create the map
 $(document).ready(createMap);
