@@ -44,8 +44,6 @@ function initialize() {
         map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
       }
 
-      google.maps.event.addDomListener(window, 'load', initialize);
-
 /* Map of GeoJSON data from US_Cities.geojson */
 //declare map var in global scope
 var map;
@@ -64,6 +62,7 @@ function createMap(){
 
     //call getData function
     getData(map);
+    google.maps.event.addDomListener(window, 'load', initialize);
 };
 
 function calculateMinValue(data){
