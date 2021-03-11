@@ -11,12 +11,12 @@
 }
 
 #panel {
-	width: 25%;
-	padding: 18px;
+	width: 28%;
+	padding: 20px;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	line-height: 40px;
+	line-height: 42px;
 }
 
 .range-slider {
