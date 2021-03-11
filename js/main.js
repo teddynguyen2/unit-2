@@ -1,49 +1,3 @@
-function initialize() {
-
-        var map = new google.maps.Map(document.getElementById('map-canvas'), {
-          center: new google.maps.LatLng(37.4, -90.1),
-          zoom: 3,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-        var layer = new google.maps.FusionTablesLayer({
-          query: {
-            select: 'Location',
-            from: '1NIVOZxrr-uoXhpWSQH2YJzY5aWhkRZW0bWhfZw'
-          },
-          map: map
-        });
-
-        // Create the legend and display on the map
-        var legend = document.createElement('div');
-        legend.id = 'ts-map-legend';
-  
-        //plug in vars for each slot replace as needed
-        var tsMapLegendTxtSlot1 = '&gt; 100k';
-        var tsMapLegendTxtSlot2 = '99k-80k';
-        var tsMapLegendTxtSlot3 = '79k-60k';
-        var tsMapLegendTxtSlot4 = '59k-40k';
-        var tsMapLegendTxtSlot5 = '&lt; 39k';
-  
-        var tsMapLegendSlot1Color = '#f14b3e';
-        var tsMapLegendSlot2Color = '#f18c3e';
-        var tsMapLegendSlot3Color = '#f5c155';
-        var tsMapLegendSlot4Color = '#2a9af5';
-        var tsMapLegendSlot5Color = '#8dc73f';
-  
-        //assemble html and place in var
-        var content = [];
-        content.push('<h3 class="ts-map-legend-headline">Legend</h3>');
-        content.push('<p><div class="ts-map-legend-color ts-map-legend-color-red"></div>'+tsMapLegendTxtSlot1+'</p>');
-        content.push('<p><div class="ts-map-legend-color ts-map-legend-color-orange"></div>'+tsMapLegendTxtSlot2+'</p>');
-        content.push('<p><div class="ts-map-legend-color ts-map-legend-color-yellow"></div>'+tsMapLegendTxtSlot3+'</p>');
-        content.push('<p><div class="ts-map-legend-color ts-map-legend-color-blue"></div>'+tsMapLegendTxtSlot4+'</p>');
-        content.push('<p><div class="ts-map-legend-color ts-map-legend-color-green"></div>'+tsMapLegendTxtSlot5+'</p>');
-        legend.innerHTML = content.join('');
-        legend.index = 1;
-        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
-      }
-
 /* Map of GeoJSON data from US_Cities.geojson */
 //declare map var in global scope
 var map;
@@ -62,7 +16,6 @@ function createMap(){
 
     //call getData function
     getData(map);
-    google.maps.event.addDomListener(window, 'load', initialize);
 };
 
 function calculateMinValue(data){
