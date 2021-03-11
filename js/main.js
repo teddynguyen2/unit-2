@@ -218,3 +218,4 @@ function getData(map){
 
 //Create the map
 $(document).ready(createMap);
+
