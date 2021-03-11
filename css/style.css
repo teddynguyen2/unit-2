@@ -38,6 +38,7 @@
 #reverse {
 	float: left;
 }
+
 .legend-control-container {
     width: 200px;
     height: 100px;
@@ -49,4 +50,8 @@
     border: solid blue 1px;
     font-family: 'Garamond', serif;
     font-size: 12px;
+}
+
+.legend-control-container p{
+     margin: 0;
 }
