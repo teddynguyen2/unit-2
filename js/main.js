@@ -25,7 +25,7 @@ function createMap(){
         div.innerHTML += "<h4>Legend</h4>";
         div.innerHTML += '<i style="background: rgb(135,206,235)"></i><span>Water</span><br>';
         div.innerHTML += '<i style="background: #448D40"></i><span>Forest</span><br>';
-        div.innerHTML += '<i style="background: #E8E6E0"></i><span>Land</span><br>';
+        div.innerHTML += '<i style="background: rgb(227,218,201)"></i><span>Land</span><br>';
         div.innerHTML += '<i style="background: rgb(224,255,255)"></i><span>Ice</span><br>';
         div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Border</span><br>';
         return div;
