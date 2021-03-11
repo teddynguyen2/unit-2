@@ -163,8 +163,8 @@ function createSequenceControls(attributes){
     $('#panel').append('<button class="step" id="reverse">Reverse</button>');
     $('#panel').append('<button class="step" id="forward">Forward</button>');
    //replace button content with images
-   $('#reverse').html('<img src="img/reverse.png">');
-   $('#forward').html('<img src="img/forward.png">');
+   $('#reverse').html('<img src="img/reverse.jpg">');
+   $('#forward').html('<img src="img/forward.jpg">');
    //click listener for buttons
     $('.step').click(function(){
       //get the old index value
