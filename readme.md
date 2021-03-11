@@ -1,4 +1,4 @@
-# Title: **Population of Large US Cities from 2010-2019**
+# Title: _Population of Large US Cities from 2010-2019_
 
 ## Author: Theodore Nguyen
 
