@@ -45,6 +45,8 @@ function calculateMinValue(data){
         for(var year = 2010; year <= 2019; year+=1){
               //get population for current year
               var value = city.properties["Pop_"+ String(year)];
+              value = parseFloat(value.replace(",",""));
+              console.log(value);
               //add value to array
               allValues.push(value);
         }
