@@ -126,7 +126,7 @@ function updatePropSymbols(attribute){
            //access feature properties
            var props = layer.feature.properties;
            //update each feature's radius based on new attribute values
-           var pop = parseFloat(props[attribute].replace(“,”, “”));
+           var pop = parseFloat(props[attribute].replace(",", ""));
            var radius = calcPropRadius(pop);
             //old code: var radius = calcPropRadius(props[attribute]);
            
