@@ -124,8 +124,11 @@ function updatePropSymbols(attribute){
            //access feature properties
            var props = layer.feature.properties;
            //update each feature's radius based on new attribute values
-           var radius = calcPropRadius(props[attribute]);
-           layer.setRadius(radius);
+           var pop = parseFloat(props[attribute].replace(“,”, “”));
+           var radius = calcPropRadius(pop);
+            //old code: var radius = calcPropRadius(props[attribute]);
+           
+            layer.setRadius(radius);
            //add city to popup content string
            var popupContent = "<p><b>City:</b> " + props.City + "</p>";
            //add formatted attribute to panel content string
